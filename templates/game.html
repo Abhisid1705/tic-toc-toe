@@ -8,11 +8,16 @@
             {% for rows in range(3) %}
                <tr>
                    {% for column in range(3) %}
-                   <td>this is cell</td>
+                   <td>
+                       {% if game[rows][column]%}
+                           {{game[rows][column]}}
+                        {% else %}
+                             <a href="{{url_for('play',row=rows,column=column)}}">play {{turn}}</a>
+                   </td>
                    {% endfor %}
                </tr>
             {% endfor %}
         </table>
        
-    </body>>
+    </body>
 </html>
