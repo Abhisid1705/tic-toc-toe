@@ -2,6 +2,23 @@
 <html>
     <head>
         <title>Tik-Tok-Toe</title>
+        <style>
+        table{
+             margin:auto;
+            padding:10px;
+            border-collapse:collapse;
+            background-color:red;
+        }
+            td{
+                border:1px solid black;
+                width:150px;
+                height:150px;
+                font-size:30px;
+                text-align:center;
+
+
+            }
+        </style>
     </head>
     <body>
         <table>
@@ -9,15 +26,12 @@
                <tr>
                    {% for column in range(3) %}
                    <td>
-                       {% if game[rows][column]%}
-                           {{game[rows][column]}}
-                        {% else %}
-                             <a href="{{url_for('play',row=rows,column=column)}}">play {{turn}}</a>
+                       {{game[rows][column]}}
                    </td>
                    {% endfor %}
                </tr>
             {% endfor %}
         </table>
-       
-    </body>
+
+    </body>>
 </html>
