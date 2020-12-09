@@ -13,6 +13,7 @@
                            {{game[rows][column]}}
                         {% else %}
                              <a href="{{url_for('play',row=rows,column=column)}}">play {{turn}}</a>
+                       {% endif %}
                    </td>
                    {% endfor %}
                </tr>
