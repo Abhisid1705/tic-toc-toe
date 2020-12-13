@@ -1,1 +1,57 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Tik-Tok-Toe</title>
+        <style>
+        table{
+            margin:auto;
+            padding:10px;
+            border-collapse:collapse;
+            background-color:red;
+        }
+            td{
+                border:1px solid black;
+                width:150px;
+                height:150px;
+                font-size:30px;
+                text-align:center;
+
+            }
+            h4,h5{
+                font-size:30px;
+                text-align:center;
+                margin:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>{{display}}</h2>
+        <h2 style="text-align:center";color:blue;>
+            {{winner}} {{won}}
+        </h2>
+        <table>
+            {% for rows in range(3) %}
+               <tr>
+                   {% for column in range(3) %}
+                   <td>
+                     {% if game[rows][column] %}
+                           {{game[rows][column]}}
+                    {% else %}
+                        <a href="{{url_for('play',row=rows,col=column)}}">play here{{session["turn"]}}</a>
+                    {% endif%}
+
+                   </td>
+                      {% endfor %}
+               </tr>
+            {% endfor %}
+        </table>
+
+         <h4>
+            <a id="undo" href="{{url_for('undo')}}">undo</a>
+         </h4>
+         <h5>
+            <a id="reset" href="{{url_for('reset')}}">reset</a>
+          </h5>
+    </body>
+</html>
 
